@@ -18,7 +18,10 @@
       {% else %}
         {# Main Menu (standard menu items) #}
         {%- set itemName = name | lower %}
-        {{- menu_item.render(name, itemName, respath) | trim }}
+         {%- if itemName == 'archives'%}
+         {% else %}
+         {{- menu_item.render(name, itemName, respath) | trim }}
+         {%- endif %}
       {%- endif %}
     {%- endfor %}
 
